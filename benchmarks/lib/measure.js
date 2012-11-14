@@ -10,7 +10,6 @@ module.exports = function(action, times) {
     
     function next() {
       pending --;
-      console.log('pending:', pending);
       if (pending === 0) {
         var endTime = Date.now();
         var elapsed = endTime - startTime;

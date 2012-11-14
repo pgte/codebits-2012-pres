@@ -5,6 +5,7 @@
   "dependencies": {
     "benchmark": "*",
     "mustache": "*",
+    "woosh": "*",
     "trumpet": "*"
   }
 }

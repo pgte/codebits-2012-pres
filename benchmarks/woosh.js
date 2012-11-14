@@ -1,25 +1,27 @@
-var trumpet = require('trumpet');
+var woosh = require('woosh');
 var measure = require('./lib/measure');
 
-var m = measure(function(done) {
-  var tr = trumpet();
+process.stdout.setMaxListeners(10000);
 
-  tr.update('.b span', function (html, node) {
+var m = measure(function(done) {
+  var w = woosh();
+
+  w.update('.b span', function (html, node) {
       return html.toUpperCase();
   });
 
-  tr.update('.c', '---');
-  tr.remove('.d');
-  tr.remove('.e');
+  w.update('.c', '---');
+  w.remove('.d');
+  w.remove('.e');
 
   var fs = require('fs');
   fs.createReadStream(__dirname + '/templates/trumpet/small.html')
-    .pipe(tr)
+    .pipe(w)
     .pipe(process.stdout);
 
-  tr.on('end', done);
+  w.on('end', done);
 }, 200);
 
 m.on('end', function(results) {
-  console.log('trumpet results:', results);
+  console.log('woosh results:', results);
 });
