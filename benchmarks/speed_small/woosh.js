@@ -1,5 +1,5 @@
 var woosh = require('woosh');
-var measure = require('./lib/measure');
+var measure = require('../lib/measure');
 
 process.stdout.setMaxListeners(10000);
 
@@ -15,7 +15,7 @@ var m = measure(function(done) {
   w.remove('.e');
 
   var fs = require('fs');
-  fs.createReadStream(__dirname + '/templates/trumpet/small.html')
+  fs.createReadStream(__dirname + '/../templates/trumpet/small.html')
     .pipe(w)
     .pipe(process.stdout);
 

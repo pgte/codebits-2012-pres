@@ -1,11 +1,11 @@
 var fs = require('fs');
 var Mustache = require('mustache');
-var measure = require('./lib/measure');
+var measure = require('../lib/measure');
 
 var out = process.stdout;
 
 var m = measure(function(done) {
-  fs.readFile(__dirname + '/templates/mustache/small.html', 'utf-8', function(err, html) {
+  fs.readFile(__dirname + '/../templates/mustache/small.html', 'utf-8', function(err, html) {
     if (err) throw err;
 
     var data = {
